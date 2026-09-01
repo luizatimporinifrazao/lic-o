@@ -1,55 +1,581 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTX Mecatrônica — automação industrial (aula de Tailwind)</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <title>MTX Mecatrônica</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
- <script>
-    
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            mec: {
-              bg:     '#1B2024', // fundo — grafite escuro
-              panel:  '#242B30', // painel — um tom mais claro, pros cartões
-              text:   '#E7EAEC', // texto claro sobre o fundo escuro
-              amber:  '#E8B923', // amarelo de sinalização — cor de destaque
-              blue:   '#5B87A0', // azul-aço — cor secundária
-              line:   '#333B40', // bordas e divisores
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: "#171c1f",
+                        dark2: "#20272b",
+                        card: "#232b30",
+                        yellow: "#f4c21d"
+                    }
+                }
             }
-          },
-          fontFamily: {
-            display: ['Space Grotesk', 'sans-serif'],
-            body: ['IBM Plex Sans', 'sans-serif'],
-          }
         }
-      }
-    }
-  </script>
+    </script>
 </head>
-<body class="bg-mec-bg text-mec-text font-body antialiased">
-    <header class="sticky top-0 z-50 ng-mec-bg/90 backdrop-blur border-b border-mec line">
 
-        <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+<body class="bg-dark text-white font-sans">
 
-            <a href="#" class="font-display text-2xl font-bold">
-                MTX
-                <span class="text-mec-amber">Mecatrônica</span>
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="border-b border-white/5">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="#" class="font-bold text-sm">
+                MTX <span class="text-yellow">Mecatrônica</span>
             </a>
 
-            <ul id="menu-desktop" class="hidden md:flex items-center gap-8 text-sm font-medium">
-            <li><a href="#solucoes" class="hover:text-mec-amber transition-colors">Soluções</a></li>
-            <li><a href="#processo" class="hover:text-mec-amber transition-colors">Processos</a></li>
-            <li><a href="#cliente" class="hover:text-mec-amber transition-colors">Clientes</a></li>
-            <li><a href="#contato" class="bg-mec-amber text-mec-bg px-4 py-2 rounded-full font-semibold hover:bg-mec-text transition-colors">Pedir Orçamento</a></li>
-        </ul>
+            <!-- Menu desktop -->
+            <div class="hidden md:flex items-center gap-7 text-[11px] text-gray-400">
+                <a href="#solucoes" class="hover:text-white transition">
+                    Soluções
+                </a>
+
+                <a href="#processo" class="hover:text-white transition">
+                    Processo
+                </a>
+
+                <a href="#contato" class="hover:text-white transition">
+                    Contato
+                </a>
+
+                <a href="#orcamento"
+                   class="bg-yellow text-black px-4 py-2 rounded-full font-semibold hover:brightness-110 transition">
+                    Pedir orçamento
+                </a>
+            </div>
+
+            <!-- Menu mobile -->
+            <button
+                id="menuButton"
+                class="md:hidden text-gray-300 text-xl">
+                ☰
+            </button>
         </nav>
-        
+
+        <!-- Menu mobile -->
+        <div id="mobileMenu"
+             class="hidden md:hidden px-6 pb-5 space-y-4 text-sm text-gray-400">
+
+            <a href="#solucoes" class="block">Soluções</a>
+            <a href="#processo" class="block">Processo</a>
+            <a href="#contato" class="block">Contato</a>
+
+            <a href="#orcamento"
+               class="inline-block bg-yellow text-black px-5 py-2 rounded-full font-semibold">
+                Pedir orçamento
+            </a>
+        </div>
     </header>
-    
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="max-w-6xl mx-auto px-6 py-14 md:py-20">
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+
+                <!-- Texto -->
+                <div>
+
+                    <h1 class="text-4xl md:text-5xl font-bold leading-[1.05] tracking-tight">
+                        Mecânica,
+                        <br>
+                        eletrônica e
+                        <br>
+                        <span class="text-yellow">software</span>,
+                        numa
+                        <br class="hidden md:block">
+                        peça só.
+                    </h1>
+
+                    <p class="mt-5 max-w-md text-gray-400 text-sm leading-relaxed">
+                        Projetamos e integramos soluções industriais para
+                        linhas de produção, do sensor ao painel de controle.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3 mt-6">
+
+                        <a href="#orcamento"
+                           class="bg-yellow text-black px-5 py-2.5 rounded-full text-xs font-semibold hover:brightness-110 transition">
+                            Pedir orçamento
+                        </a>
+
+                        <a href="#solucoes"
+                           class="border border-white/20 px-5 py-2.5 rounded-full text-xs hover:bg-white/5 transition">
+                            Ver soluções
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Área visual -->
+                <div class="flex justify-center">
+
+                    <div class="w-full max-w-md h-64 md:h-72
+                                rounded-3xl
+                                bg-yellow/10
+                                p-3">
+
+                        <div class="w-full h-full
+                                    rounded-2xl
+                                    bg-dark2
+                                    border border-white/5
+                                    flex items-center justify-center">
+
+                            <!-- Ícone mecânico -->
+                            <div class="text-5xl opacity-80 ">
+                                ⚙️
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= SOLUÇÕES ================= -->
+
+        <section id="solucoes" class="max-w-6xl mx-auto px-6 pb-16">
+
+            <div class="text-center mb-8">
+                <h2 class="text-xl font-bold">
+                    Soluções
+                </h2>
+
+                <p class="text-xs text-gray-500 mt-2">
+                    O que a gente projeta e integra
+                </p>
+            </div>
+
+
+            <div class="grid md:grid-cols-3 gap-4">
+
+                <!-- Card -->
+                <article class="bg-card border border-white/5 rounded-lg p-5
+                                hover:-translate-y-1 transition duration-300">
+
+                    <div class="text-yellow mb-4 text-xl">
+                        ⚙
+                    </div>
+
+                    <h3 class="font-semibold text-sm">
+                        Robótica industrial
+                    </h3>
+
+                    <p class="text-xs text-gray-500 leading-relaxed mt-2">
+                        Robôs, células e dispositivos integrados
+                        para mais agilidade e produtividade.
+                    </p>
+
+                </article>
+
+
+                <!-- Card -->
+                <article class="bg-card border border-white/5 rounded-lg p-5
+                                hover:-translate-y-1 transition duration-300">
+
+                    <div class="text-yellow mb-4 text-xl">
+                        📊
+                    </div>
+
+                    <h3 class="font-semibold text-sm">
+                        Automação de linhas
+                    </h3>
+
+                    <p class="text-xs text-gray-500 leading-relaxed mt-2">
+                        Automação, painéis e sistemas de controle
+                        para linhas mais rápidas e confiáveis.
+                    </p>
+
+                </article>
+
+
+                <!-- Card -->
+                <article class="bg-card border border-white/5 rounded-lg p-5
+                                hover:-translate-y-1 transition duration-300">
+
+                    <div class="text-yellow mb-4 text-xl">
+                        🔧
+                    </div>
+
+                    <h3 class="font-semibold text-sm">
+                        Manutenção preditiva
+                    </h3>
+
+                    <p class="text-xs text-gray-500 leading-relaxed mt-2">
+                        Monitoramento inteligente para prever falhas
+                        antes que elas aconteçam.
+                    </p>
+
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ================= PROCESSO ================= -->
+
+        <section id="processo" class="bg-dark2 border-y border-white/5">
+
+            <div class="max-w-6xl mx-auto px-6 py-16">
+
+                <div class="text-center mb-10">
+
+                    <h2 class="text-2xl font-bold">
+                        Como um projeto acontece
+                    </h2>
+
+                </div>
+
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <div>
+                        <span class="text-yellow text-sm font-bold">
+                            01
+                        </span>
+
+                        <h3 class="font-semibold text-sm mt-2">
+                            Diagnóstico
+                        </h3>
+
+                        <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                            Entendemos o problema e mapeamos
+                            possíveis soluções.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span class="text-yellow text-sm font-bold">
+                            02
+                        </span>
+
+                        <h3 class="font-semibold text-sm mt-2">
+                            Projeto
+                        </h3>
+
+                        <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                            Desenhamos máquinas, melhorias
+                            e sistemas necessários.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span class="text-yellow text-sm font-bold">
+                            03
+                        </span>
+
+                        <h3 class="font-semibold text-sm mt-2">
+                            Integração
+                        </h3>
+
+                        <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                            Mecânica, elétrica e software
+                            trabalhando juntos.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span class="text-yellow text-sm font-bold">
+                            04
+                        </span>
+
+                        <h3 class="font-semibold text-sm mt-2">
+                            Suporte contínuo
+                        </h3>
+
+                        <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                            Acompanhamos a operação e oferecemos
+                            melhorias constantes.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESULTADOS ================= -->
+
+        <section class="max-w-6xl mx-auto px-6 py-16">
+
+            <div class="text-center mb-10">
+                <h2 class="text-2xl font-bold">
+                    Resultados em campo
+                </h2>
+            </div>
+
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+                <div>
+                    <strong class="text-yellow text-2xl">
+                        64+
+                    </strong>
+
+                    <p class="text-xs text-gray-500 mt-2">
+                        projetos realizados
+                    </p>
+                </div>
+
+
+                <div>
+                    <strong class="text-yellow text-2xl">
+                        11
+                    </strong>
+
+                    <p class="text-xs text-gray-500 mt-2">
+                        anos de mercado
+                    </p>
+                </div>
+
+
+                <div>
+                    <strong class="text-yellow text-2xl">
+                        99,2%
+                    </strong>
+
+                    <p class="text-xs text-gray-500 mt-2">
+                        uptime médio
+                    </p>
+                </div>
+
+
+                <div>
+                    <strong class="text-yellow text-2xl">
+                        30+
+                    </strong>
+
+                    <p class="text-xs text-gray-500 mt-2">
+                        clientes atendidos
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Depoimentos -->
+
+            <div class="grid md:grid-cols-2 gap-8 mt-12">
+
+                <blockquote class="border-l-2 border-yellow pl-5">
+                    <p class="text-sm text-gray-400 italic">
+                        "Reduzimos as paradas não planejadas
+                        e conseguimos uma operação muito mais estável."
+                    </p>
+
+                    <footer class="text-xs text-gray-600 mt-3">
+                        — Eng. Paulo, indústria
+                    </footer>
+                </blockquote>
+
+
+                <blockquote class="border-l-2 border-yellow pl-5">
+                    <p class="text-sm text-gray-400 italic">
+                        "A integração deixou o processo muito
+                        mais rápido e confiável."
+                    </p>
+
+                    <footer class="text-xs text-gray-600 mt-3">
+                        — Marcelo, gerente de produção
+                    </footer>
+                </blockquote>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTATO ================= -->
+
+        <section id="orcamento" class="bg-dark2 border-t border-white/5">
+
+            <div class="max-w-6xl mx-auto px-6 py-16">
+
+                <div class="grid md:grid-cols-2 gap-12">
+
+                    <!-- Informações -->
+
+                    <div>
+
+                        <h2 class="text-2xl font-bold">
+                            Peça um orçamento
+                        </h2>
+
+                        <p class="text-sm text-gray-500 mt-3 max-w-md">
+                            Conte um pouco do seu processo e
+                            responderemos em até 2 dias úteis.
+                        </p>
+
+
+                        <div class="mt-7 space-y-3 text-xs text-gray-400">
+
+                            <p>
+                                📍 São Paulo, SP
+                            </p>
+
+                            <p>
+                                ✉ contato@mtxmecatronica.com
+                            </p>
+
+                            <p>
+                                ☎ (11) 4321-1234
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Formulário -->
+
+                    <form id="contactForm" class="space-y-3">
+
+                        <input
+                            type="text"
+                            placeholder="Nome"
+                            required
+                            class="w-full bg-dark border border-white/10
+                                   rounded-lg px-4 py-3
+                                   text-sm outline-none
+                                   focus:border-yellow transition"
+                        >
+
+
+                        <input
+                            type="email"
+                            placeholder="E-mail"
+                            required
+                            class="w-full bg-dark border border-white/10
+                                   rounded-lg px-4 py-3
+                                   text-sm outline-none
+                                   focus:border-yellow transition"
+                        >
+
+
+                        <textarea
+                            rows="5"
+                            placeholder="Conte sobre o projeto..."
+                            required
+                            class="w-full bg-dark border border-white/10
+                                   rounded-lg px-4 py-3
+                                   text-sm outline-none
+                                   resize-none
+                                   focus:border-yellow transition"></textarea>
+
+
+                        <button
+                            type="submit"
+                            class="w-full bg-yellow text-black
+                                   rounded-full py-3
+                                   text-sm font-semibold
+                                   hover:brightness-110 transition">
+
+                            Enviar pedido
+
+                        </button>
+
+                        <p id="formMessage"
+                           class="hidden text-center text-xs text-yellow">
+                            Solicitação enviada com sucesso!
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="border-t border-white/5">
+
+        <div class="max-w-6xl mx-auto px-6 py-5
+                    flex flex-col md:flex-row
+                    gap-3 md:gap-0
+                    justify-between
+                    text-[10px] text-gray-600">
+
+            <p>
+                © 2026 MTX Mecatrônica. Feito de engenharia para indústria.
+            </p>
+
+            <div class="flex gap-5">
+                <a href="#" class="hover:text-gray-300">
+                    LinkedIn
+                </a>
+
+                <a href="#" class="hover:text-gray-300">
+                    WhatsApp
+                </a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // Menu mobile
+        const menuButton = document.getElementById("menuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+
+        // Formulário
+        const form = document.getElementById("contactForm");
+        const message = document.getElementById("formMessage");
+
+        form.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+            message.classList.remove("hidden");
+
+            form.reset();
+
+            setTimeout(() => {
+                message.classList.add("hidden");
+            }, 4000);
+
+        });
+
+    </script>
+
 </body>
 </html>
