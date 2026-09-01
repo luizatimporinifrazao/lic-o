@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTX Mecatrônica — automação industrial (aula de Tailwind)</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+    
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mec: {
+              bg:     '#1B2024', // fundo — grafite escuro
+              panel:  '#242B30', // painel — um tom mais claro, pros cartões
+              text:   '#E7EAEC', // texto claro sobre o fundo escuro
+              amber:  '#E8B923', // amarelo de sinalização — cor de destaque
+              blue:   '#5B87A0', // azul-aço — cor secundária
+              line:   '#333B40', // bordas e divisores
+            }
+          },
+          fontFamily: {
+            display: ['Space Grotesk', 'sans-serif'],
+            body: ['IBM Plex Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-mec-bg text-mec-text font-body antialiased">
+    <header class="sticky top-0 z-50 ng-mec-bg/90 backdrop-blur border-b border-mec line">
+
+        <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+
+            <a href="#" class="font-display text-2xl font-bold">
+                MTX
+                <span class="text-mec-amber">Mecatrônica</span>
+            </a>
+
+            <ul id="menu-desktop" class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <li><a href="#solucoes" class="hover:text-mec-amber transition-colors">Soluções</a></li>
+            <li><a href="#processo" class="hover:text-mec-amber transition-colors">Processos</a></li>
+            <li><a href="#cliente" class="hover:text-mec-amber transition-colors">Clientes</a></li>
+            <li><a href="#contato" class="bg-mec-amber text-mec-bg px-4 py-2 rounded-full font-semibold hover:bg-mec-text transition-colors">Pedir Orçamento</a></li>
+        </ul>
+        </nav>
+        
+    </header>
+    
+</body>
+</html>
